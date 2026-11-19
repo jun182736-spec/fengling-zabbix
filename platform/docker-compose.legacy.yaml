@@ -1,0 +1,155 @@
+services:
+
+  mysql:
+
+    image: mysql:8.0
+
+    container_name: zabbix-mysql
+
+    restart: unless-stopped
+
+    environment:
+
+      MYSQL_DATABASE: zabbix
+
+      MYSQL_USER: zabbix
+
+      MYSQL_PASSWORD: zabbix123
+
+      MYSQL_ROOT_PASSWORD: root123456
+
+
+    volumes:
+
+      - mysql-data:/var/lib/mysql
+
+      - ./initdb:/docker-entrypoint-initdb.d
+
+
+    networks:
+
+      - zabbix-net
+
+
+
+  zabbix-server:
+
+
+    image: zabbix/zabbix-server-mysql:alpine-7.0.30
+
+
+    container_name: zabbix-server
+
+
+    restart: unless-stopped
+
+
+    environment:
+
+
+      DB_SERVER_HOST: mysql
+
+
+      MYSQL_DATABASE: zabbix
+
+
+      MYSQL_USER: zabbix
+
+
+      MYSQL_PASSWORD: zabbix123
+
+
+
+    depends_on:
+
+      - mysql
+
+
+
+    ports:
+
+
+      - "10051:10051"
+
+
+
+    networks:
+
+      - zabbix-net
+
+
+
+
+  zabbix-web:
+
+
+    image: my-zabbix-web:7.0.30
+
+
+    container_name: zabbix-web-custom
+
+
+    restart: unless-stopped
+
+
+
+    environment:
+
+
+      DB_SERVER_HOST: mysql
+
+
+      MYSQL_DATABASE: zabbix
+
+
+      MYSQL_USER: zabbix
+
+
+      MYSQL_PASSWORD: zabbix123
+
+
+      ZBX_SERVER_HOST: zabbix-server
+      
+
+      ZBX_SERVER_NAME: 风铃云监控管理系统
+
+
+      PHP_TZ: Asia/Shanghai
+
+
+
+    depends_on:
+
+
+      - mysql
+
+      - zabbix-server
+
+
+
+    ports:
+
+
+      - "8080:8080"
+
+
+
+    networks:
+
+
+      - zabbix-net
+
+
+
+
+volumes:
+
+
+  mysql-data:
+
+
+
+networks:
+
+
+  zabbix-net:

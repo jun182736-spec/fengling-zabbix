@@ -1,0 +1,133 @@
+/* Brand presentation; authentication and monitoring behavior remain native. */
+.sidebar .server-name { display: none; }
+.sidebar .sidebar-header {
+  position: relative;
+  box-sizing: border-box;
+  min-width: 155px;
+  min-height: 110px;
+  padding: 18px 2px 2px;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar .sidebar-header .logo { width: 100%; margin: 0; }
+.sidebar .sidebar-header-buttons { position: absolute; top: 0; right: 0; }
+.sidebar .logo div.zabbix-logo-sidebar {
+  width: 80px;
+  height: 90px;
+  margin: 0 auto;
+  background-position: center;
+  background-size: contain;
+}
+.sidebar .logo div.zabbix-logo-sidebar-compact {
+  width: 28px;
+  height: 34px;
+  background-position: center;
+  background-size: contain;
+}
+
+.wrapper.fengling-login {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 9vw 64px;
+  background: #f4f8fc url('../img/fengling-login-background.png') center center / cover no-repeat;
+  color: #244660;
+  font-family: Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif;
+}
+.fengling-login > main {
+  flex: 0 0 auto;
+  min-width: 0;
+  width: min(440px, 100%);
+  margin: auto 0 auto auto;
+  padding: 0;
+}
+.fengling-login .signin-container {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 36px 44px 32px;
+  border: 1px solid #bad4e5;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 14px 50px rgba(51, 105, 148, .12);
+}
+.fengling-login .signin-logo { margin: 0 0 8px; }
+.fengling-login .signin-logo .zabbix-logo {
+  width: 72px;
+  height: 84px;
+  background-position: center;
+}
+.fengling-login .signin-container .fengling-login-title {
+  margin: 0 0 22px;
+  text-align: center;
+  white-space: normal;
+  font-size: 25px;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #084e83;
+}
+.fengling-login .signin-container ul li { padding-top: 18px; font-size: 14px; }
+.fengling-login .signin-container label { margin-bottom: 8px; color: #34536b; }
+.fengling-login .signin-container input[type='text'],
+.fengling-login .signin-container input[type='password'] {
+  box-sizing: border-box;
+  height: 46px;
+  padding: 10px 12px;
+  border: 1px solid #c5d5e1;
+  border-radius: 4px;
+  background: #fbfdff;
+  color: #183b56;
+  font-size: 15px;
+}
+.fengling-login .signin-container input:focus {
+  border-color: #1674be;
+  outline: 2px solid rgba(22, 116, 190, .2);
+  outline-offset: 1px;
+}
+.fengling-login .signin-container button[type='submit'] {
+  height: 46px;
+  margin-top: 4px;
+  border: 1px solid #1269b4;
+  border-radius: 4px;
+  background: #146fbd;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 600;
+}
+.fengling-login .signin-container button[type='submit']:hover { background: #095b9e; }
+.fengling-login .signin-container button[type='submit']:focus-visible { outline: 3px solid #66b6ec; outline-offset: 3px; }
+.fengling-login .signin-links { margin-top: 20px; }
+.fengling-login .signin-links a { color: #46657e; }
+.fengling-login > footer {
+  min-width: 0;
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  width: auto;
+  padding: 0;
+  text-align: center;
+  color: #526d82;
+  font-size: 12px;
+}
+.fengling-login > footer a { color: #526d82; }
+@media (max-width: 900px) {
+  .wrapper.fengling-login { padding: 36px 6vw 64px; background-position: 38% center; }
+  .fengling-login > main { margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 480px) {
+  .wrapper.fengling-login { padding: 24px 20px; }
+  .fengling-login .signin-container { padding: 26px 24px; }
+  .fengling-login .signin-container .fengling-login-title { font-size: 21px; letter-spacing: 0; }
+  .fengling-login > footer { position: static; margin-top: 28px; line-height: 1.7; }
+}
+@media (max-height: 720px) {
+  .wrapper.fengling-login { padding-top: 24px; padding-bottom: 24px; }
+  .fengling-login > footer { position: static; margin-top: 24px; line-height: 1.7; }
+}
